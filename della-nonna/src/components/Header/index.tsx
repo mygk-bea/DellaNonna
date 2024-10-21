@@ -1,17 +1,17 @@
-import styles from './Header.module.scss';
+import styled from './Header.module.scss';
 import logo from '../../assets/images/Logo.svg';
-import icon_search from '../../assets/icons/search.svg';
+import icon_search from '../../assets/icons/icon_search.svg';
 
 export default function Header({ display='none' }) {
     return (
-        <header className={styles.header}>
-            <div className={styles.header__logo}>
+        <header className={styled.header}>
+            <div className={styled.header__logo}>
                 <img src={logo} alt="Logo Della Nonna" />
             </div>
 
-            <div className={styles.header__search} style={{ display }}>
-                <input type="text" className={styles.header__search__bar} placeholder='Procurar uma receita...'/>
-                <button className={styles.header__search__btn}>
+            <div className={styled.header__search} style={{ display }}>
+                <input type="text" className={styled.header__search__bar} placeholder='Procurar uma receita...'/>
+                <button className={styled.header__search__btn}>
                     <img src={icon_search} alt="Ícone Pesquisar" />
                 </button>
             </div>

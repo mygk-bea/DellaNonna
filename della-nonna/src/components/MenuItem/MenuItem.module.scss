@@ -1,0 +1,30 @@
+.item{
+    display: flex;
+    align-items: center;
+    background: var(--primary-color);
+    width: fit-content;
+    height: 55px;
+    padding: 10px;
+    border-radius: 0 15px 15px 0;
+    box-shadow: 4px 4px 0 var(--secondary-color);
+    margin-bottom: 10px;
+
+    &__namepage{
+        font-family: 'Caveat', sans-serif;
+        font-size: 24px;
+        color: var(--text-color);
+        margin-right: 10px;
+        text-wrap: nowrap;
+    }
+
+    .inner{
+        max-width: 0;
+        overflow: hidden;
+        transition: .5s ease;   
+    }
+
+    &:hover .inner{
+        max-width: 200px;
+        transition: .5s ease;
+    }
+}
