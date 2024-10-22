@@ -12,7 +12,7 @@ export default function Home() {
                 <Divider/>
 
                 <div className={styled.container__menu}>
-                    <MenuItem namepage='Cadastrar Receita' iconSVG='src/assets/icons/icon_plus-outline.svg'/>
+                    <MenuItem namepage='Cadastrar' iconSVG='src/assets/icons/icon_plus-outline.svg'/>
                     <MenuItem namepage='Armazém' iconSVG='src/assets/icons/icon_box.svg'/>
                     <MenuItem namepage='Perfil' iconSVG='src/assets/icons/icon_person.svg'/>
                     <MenuItem namepage='Sair' iconSVG='src/assets/icons/icon_exit.svg'/>

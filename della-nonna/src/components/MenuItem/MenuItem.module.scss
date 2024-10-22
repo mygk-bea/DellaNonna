@@ -7,14 +7,13 @@
     padding: 10px;
     border-radius: 0 15px 15px 0;
     box-shadow: 4px 4px 0 var(--secondary-color);
-    margin-bottom: 10px;
+    position: absolute;
 
     &__namepage{
         font-family: 'Caveat', sans-serif;
         font-size: 24px;
         color: var(--text-color);
         margin-right: 10px;
-        text-wrap: nowrap;
     }
 
     .inner{
@@ -26,5 +25,11 @@
     &:hover .inner{
         max-width: 200px;
         transition: .5s ease;
+    }
+
+    @for $i from 2 through 5 {
+        &:nth-child(#{$i}) {
+            top: 70px * ($i - 1);
+        }
     }
 }
