@@ -6,6 +6,10 @@
     align-items: center;
     gap: 30px;
 
+    &__logo img{
+        height: 80px;
+    }
+
     &__search {
         width: 100%;
         border-radius: 15px;

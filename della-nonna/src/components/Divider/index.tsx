@@ -1,6 +1,10 @@
 import styled from './Divider.module.scss';
 
-export default function Divider(props) {
+interface dividerProps {
+    rotate: any;
+}
+
+export default function Divider(props: dividerProps) {
     const rotateStyle = props.rotate ? { transform: 'rotate(90deg)' } : {};
 
     return (

@@ -1,11 +1,11 @@
 import styled from './MenuItem.module.scss';
 
-interface menuProps {
+interface itemMenuProps {
     namepage: string,
     iconSVG: string
 }
 
-export default function MenuItem(props: menuProps) {
+export default function MenuItem(props: itemMenuProps) {
     return(
         <div className={styled.item}>
             <div className={styled.inner}>

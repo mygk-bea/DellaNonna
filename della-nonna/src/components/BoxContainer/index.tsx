@@ -1,6 +1,10 @@
 import styled from './BoxContainer.module.scss';
 
-export default function BoxContainer(props) {
+interface boxContainerProps {
+    children: any
+}
+
+export default function BoxContainer(props: boxContainerProps) {
     return (
         <div className={styled.content}>
             {props.children}
