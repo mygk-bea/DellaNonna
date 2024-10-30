@@ -1,11 +1,11 @@
 // import express from 'express';
 
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 const port = 3000
-mongoose.connect("mongodb+srv://nonnadella27:tunuYy5n7erGqXVL@cluster0.o7ilj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect("mongodb+srv://nonnadella27:uJNx5EuM7mAyKpm1@cluster0.o7ilj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
 // criação do modelo/tabela Receita
 const Receita = mongoose.model('Receita', {
