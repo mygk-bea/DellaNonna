@@ -73,3 +73,13 @@ app.get('/', function (req, res) {
 app.listen(port, () => {
     console.log('App running')
 }); 
+
+// API para listar todas as receitas
+// app.get("/api/receitas", async (req, res) => {
+//     try {
+//         const receitas = await Receita.find(); // Busca todas as receitas no banco
+//         res.status(200).send(receitas); // Retorna as receitas
+//     } catch (error) {
+//         res.status(500).send({ error: "Erro ao buscar receitas", detalhes: error });
+//     }
+// });
