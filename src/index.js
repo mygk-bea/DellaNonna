@@ -53,15 +53,21 @@ app.post("/cadastro-receita", async (req, res) => {
         favoritado: req.body.favoritado,
         imagem: req.body.urlImgaem
     })
+
+    await rec.save()
+    res.send(rec)
 })
 
 // API para inserts - Usuario
 app.post("/cadastro-usuario", async (req, res) => {
-    const rec = new Usuario({
+    const user = new Usuario({
         nome: req.body.nome,
         senha: req.body.senha,
         email: req.body.email
     })
+
+    await user.save()
+    res.send(user)
 })
 
 
