@@ -1,5 +1,5 @@
 import styled from './Footer.module.scss';
-import icon_arrow from '../../assets/icons/icon_arrow.svg';
+import icon_arrow from '../../../assets/icons/icon_arrow.svg';
 
 export default function Footer() {
     return (
@@ -7,12 +7,12 @@ export default function Footer() {
             <div className={styled.footer__btn}>
                 <button id={styled.back}>
                     <img src={icon_arrow} alt="Seta para Receita Anterior" />
-                    Anterior
+                    <p>Anterior</p>
                 </button>
             </div>
             <div className={styled.footer__btn}>
                 <button id={styled.next}>
-                    Próximo
+                    <p>Próximo</p>
                     <img src={icon_arrow} alt="Seta para Próxima Receita" />
                 </button>
             </div>

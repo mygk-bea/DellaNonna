@@ -1,7 +1,7 @@
 import styled from './Page.module.scss';
 
 interface pageProps {
-    children: any
+    children?: any
 }
 
 export default function Page(props: pageProps) {

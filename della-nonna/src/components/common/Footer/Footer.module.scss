@@ -1,0 +1,29 @@
+.footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &__btn{
+        button{
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            border: 0;
+            padding: 10px 20px;    
+            border-radius: 15px;
+            box-shadow: 4px 4px 0 var(--secondary-color);
+            background: var(--primary-color);
+
+            p{
+                width: 80px;
+                text-align: center;
+                font-family: 'Caveat';
+                font-size: 24px;
+            }
+        }
+
+        #back img{
+            transform: rotate(180deg);
+        }
+    }
+}

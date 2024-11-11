@@ -5,3 +5,12 @@
     background-color: var(--secondary-color);
     box-shadow: 4px 4px 0px var(--secondary-shadow-color);
 }
+
+.horizontal{
+    position: absolute;
+    height: 50px;
+    width: 30%;
+    top: -10px;
+    left: 50%; 
+    transform: translateX(-50%); 
+}

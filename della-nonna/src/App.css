@@ -5,6 +5,23 @@
 }
 
 body {
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     background: var(--background-color);
     font-family: "Nunito", sans-serif;
+}
+
+.container {
+    width: 95%;
+    max-width: 1000px;
+    width: 70vw;
+    margin: 40px auto;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }

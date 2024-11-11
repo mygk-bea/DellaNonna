@@ -1,9 +1,9 @@
-import BoxContainer from "../../components/BoxContainer";
-import Divider from "../../components/Divider";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import MenuItem from "../../components/MenuItem";
-import Page from "../../components/Page";
+import BoxContainer from "../../components/common/BoxContainer";
+import Divider from "../../components/common/Divider";
+import Footer from "../../components/common/Footer";
+import Header from "../../components/common/Header";
+import MenuItem from "../../components/common/MenuItem";
+import Page from "../../components/common/Page";
 import styled from './Home.module.scss';
 // import { useState, useEffect } from 'react';
 
@@ -41,14 +41,14 @@ export default function Home() {
     // }, []);
 
     return (
-        <div className={styled.container}>
+        <div className="container">
             <Header display="flex"></Header>
-            <BoxContainer>
+            <BoxContainer hasMenu={true}>
                 <Page>
                     <p>HAHAHHAHAHHA</p>
                 </Page>
 
-                <Divider rotate={false}/>
+                <Divider/>
 
                 <Page>
                     <p>MUAHAHHAHAHHAHA</p>

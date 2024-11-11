@@ -1,6 +1,6 @@
 import styled from './Header.module.scss';
-import logo from '../../assets/images/Logo.svg';
-import icon_search from '../../assets/icons/icon_search.svg';
+import logo from '../../../assets/images/Logo.svg';
+import icon_search from '../../../assets/icons/icon_search.svg';
 
 export default function Header({ display='none' }) {
     return (
