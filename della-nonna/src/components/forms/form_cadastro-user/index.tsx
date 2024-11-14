@@ -1,5 +1,6 @@
 import { useState } from "react";
 import InputText from "../../inputs/input_text";
+import styled from './Form.module.scss';
 
 interface FormData {
     name: string;
@@ -28,28 +29,37 @@ export default function FormCadastroUser() {
     };
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form className={styled.form} onSubmit={handleSubmit}>
+            <h1 className={styled.form__title}>Cadastre-se</h1>
 
-            <InputText
-                name="name"
-                value={formData.name}
-                type="text"
-                onChange={(value) => handleChange('name', value)}
-            />
-            <InputText
-                name="email"
-                value={formData.email}
-                type="email"
-                onChange={(value) => handleChange('email', value)}
-            />
-            <InputText
-                name="password"
-                value={formData.password}
-                type="password"
-                onChange={(value) => handleChange('password', value)}
-            />
+            <div className={styled.form__inputs}>
+                <InputText
+                    name="name"
+                    value={formData.name}
+                    type="text"
+                    label="Nome"
+                    placeholder="Insira seu nome"
+                    onChange={(value) => handleChange('name', value)}
+                />
+                <InputText
+                    name="email"
+                    value={formData.email}
+                    type="email"
+                    label="E-mail"
+                    placeholder="exemplo@dominio.com"
+                    onChange={(value) => handleChange('email', value)}
+                />
+                <InputText
+                    name="password"
+                    value={formData.password}
+                    type="password"
+                    label="Senha"
+                    placeholder="Insira uma senha forte"
+                    onChange={(value) => handleChange('password', value)}
+                />
+            </div>
 
-            <button type="submit">Enviar</button>
+            <button className={styled.form__btn} type="submit">Cadastrar</button>
         </form>
     )
 }

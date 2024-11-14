@@ -5,6 +5,8 @@ interface InputProps {
     name: string;
     value: string;
     type: string;
+    label: string;
+    placeholder: string;
     onChange: (value: string) => void;
 }
 
@@ -13,13 +15,14 @@ export default function InputText(props: InputProps) {
         props.onChange(e.target.value);
     };
     return (
-        <div className="input">
-            <label htmlFor={props.name}>{props.name}</label>
+        <div className={styled.input}>
+            <label htmlFor={props.name}>{props.label}</label>
             <input 
                 type={props.type} 
                 id={props.name}
                 name={props.name}
                 value={props.value} 
+                placeholder={props.placeholder}
                 onChange={handleChange}
                 required
             />

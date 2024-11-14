@@ -1,0 +1,46 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  width: 100%;
+  padding: 20px;
+  margin: 20px;
+  
+  &__img{
+    background: var(--secondary-shadow-color);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img{
+      height: 200px;
+    }
+
+    .form__title {
+      font-family: 'Caveat', sans-serif;
+    }
+  }
+
+  
+  &__inputs {
+    width: 100%;
+    margin: 15px 0;
+    padding: 10px;
+  }
+
+  &__btn {
+    cursor: pointer;
+    width: 50%;
+    height: 40px;
+    border: 0;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: var(--secondary-color);
+    color: var(--background-color);
+  }
+}

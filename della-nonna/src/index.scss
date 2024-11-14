@@ -3,6 +3,7 @@
 :root {
     --background-color: #FFFED9;
     --primary-color: #FFDE8D;
+    --primary-light-color: #F9F7BB;
     --secondary-color: #DE7047;
     --secondary-shadow-color: rgba(222, 122, 71, 0.5);
     --grayscale-color: #CCC;
@@ -11,4 +12,5 @@
 
 * {
     font-family: "Nunito", sans-serif;
+    color: var(--text-color);
 }
