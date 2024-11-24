@@ -7,8 +7,8 @@ const AppRoutes: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" Component={Home} />
-        <Route path="/login" Component={Login} />
+        <Route path="/" Component={Login} />
+        <Route path="/home" Component={Home} />
       </Routes>
     </Router>
   );

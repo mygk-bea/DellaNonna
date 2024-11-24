@@ -2,5 +2,5 @@
 
 ## Para o backEnd: 
 - npm i
-- npm i express
-- npm mongoose
+- npm install @faker-js/faker
+- npm i express mongoose nodemon cors

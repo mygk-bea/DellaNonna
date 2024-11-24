@@ -2,6 +2,7 @@ import styled from './Form.module.scss';
 import icon_logo from '../../../assets/images/Logo_Icon.svg';
 import { useState } from 'react';
 import InputText from '../../inputs/input_text';
+import { useNavigate } from 'react-router-dom';
 
 interface FormData {
   email: string;
@@ -9,6 +10,7 @@ interface FormData {
 }
 
 export default function FormLogin() {
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState<FormData>({
     email: '',
@@ -50,6 +52,8 @@ export default function FormLogin() {
     } catch (error) {
       alert(error);
     }
+
+    navigate('/home');
   };
 
   return (

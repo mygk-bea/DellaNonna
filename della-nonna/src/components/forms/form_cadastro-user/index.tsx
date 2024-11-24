@@ -1,6 +1,7 @@
 import { useState } from "react";
 import InputText from "../../inputs/input_text";
 import styled from './Form.module.scss';
+import { useNavigate } from "react-router-dom";
 
 interface FormData {
     name: string;
@@ -9,6 +10,7 @@ interface FormData {
 }
 
 export default function FormCadastroUser() {
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState<FormData>({
         name: '',
@@ -44,6 +46,8 @@ export default function FormCadastroUser() {
         } catch (error) {
             alert(error);
         }
+
+        navigate('/home');
     };
     
 

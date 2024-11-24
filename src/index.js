@@ -91,14 +91,19 @@ app.listen(port, () => {
 });
 
 // API para listar todas as receitas
-// app.get("/api/receitas", async (req, res) => {
-//     try {
-//         const receitas = await Receita.find(); // Busca todas as receitas no banco
-//         res.status(200).send(receitas); // Retorna as receitas
-//     } catch (error) {
-//         res.status(500).send({ error: "Erro ao buscar receitas", detalhes: error });
-//     }
-// });
+app.get("/api/receitas", async (req, res) => {
+    try {
+        const nomeUser = req.headers['nome-user']; 
+        if (!nomeUser) {
+            return res.status(400).json({ error: 'Nome do usuário não fornecido' });
+        }
+
+        const receitas = await Receita.find({ nome_user: nomeUser }); // Busca todas as receitas no banco de um usuário
+        res.status(200).send(receitas); // Retorna as receitas
+    } catch (error) {
+        res.status(500).send({ error: "Erro ao buscar receitas", detalhes: error });
+    }
+});
 
 }).catch(err => {
     console.error('Erro:', err);
