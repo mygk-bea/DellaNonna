@@ -3,56 +3,18 @@
 // import bcrypt from 'bcrypt';
 // import cors from 'cors';
 
+const { Receita, Usuario, Armazem, ListaCompras } = require('./model')
 const express = require('express')
-const mongoose = require('mongoose')
-
 const app = express()
 const port = 3000
-const cors = require('cors');
+const cors = require('cors')
+const mongoose = require('mongoose')
+const conn = require('./conn')
 
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb+srv://nonnadella230:8MWYMk9SXwLiAN4k@cluster0.sf5fl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-
-// criação do modelo/tabela Receita
-const Receita = mongoose.model('Receita', {
-    nome_user: String,
-    nome: String,
-    data: Date,
-    modoPreparo: String,
-    ingredientes: {
-        nomeIngred: String,
-        quantidade: Number
-    },
-    favoritado: Boolean,
-    imagem: String
-});
-
-// criação do modelo/tabela Usuário
-const Usuario = mongoose.model('Usuario', {
-    nome: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    senha: String,
-    email: String
-})
-
-// criação do modelo/tabela Armazém
-const Armazem = mongoose.model('Armazem', {
-    nomeIngred: [String],
-    quantidade: [Number]
-})
-
-// criação do modelo/tabela Lista de Compras
-const ListaCompras = mongoose.model('Lista_de_compras', {
-    nomeIngred: [String],
-    quantidade: [Number]
-})
-
-
+conn().then(() => {
 // API para inserts - Receitas
 app.post("/cadastro-receita", async (req, res) => {
     const rec = new Receita({
@@ -123,11 +85,6 @@ app.post("/login-usuario", async (req, res) => {
     }
 });
 
-// app.get('/', function (req, res) {
-//     res.send('Hello word');
-// })
-
-
 app.listen(port, () => {
     console.log('App running')
 });
@@ -141,3 +98,7 @@ app.listen(port, () => {
 //         res.status(500).send({ error: "Erro ao buscar receitas", detalhes: error });
 //     }
 // });
+
+}).catch(err => {
+    console.error('Erro:', err);
+});
