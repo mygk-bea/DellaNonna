@@ -18,6 +18,7 @@ conn().then(() => {
 // API para inserts - Receitas
 app.post("/cadastro-receita", async (req, res) => {
     const rec = new Receita({
+        nome_user: req.body.nome_user,
         nome: req.body.nome,
         data: req.body.data,
         modoPreparo: req.body.modoPreparo,
