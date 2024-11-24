@@ -22,9 +22,34 @@ export default function FormLogin() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {  
     e.preventDefault();
     console.log(formData);
+  
+    try {
+      const login = await fetch('http://localhost:3000/login-usuario', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      const result = await login.json();
+      // objeto vindo do backEnd com os dados do usuário
+      console.log('Resultado do login:', result);
+  
+      if (!login.ok) {
+        throw new Error(result.error);
+      }
+  
+      if (result.user) {
+        localStorage.setItem('user', JSON.stringify(result.user));
+      }
+  
+    } catch (error) {
+      alert(error);
+    }
   };
 
   return (

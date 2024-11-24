@@ -23,10 +23,29 @@ export default function FormCadastroUser() {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         console.log(formData);
+
+        try {
+            const cadUser = await fetch('http://localhost:3000/cadastro-usuario', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+            });
+
+            if (!cadUser.ok) {
+                const data = await cadUser.json();
+                throw new Error(data.error);
+            }
+    
+        } catch (error) {
+            alert(error);
+        }
     };
+    
 
     return(
         <form className={styled.form} onSubmit={handleSubmit}>

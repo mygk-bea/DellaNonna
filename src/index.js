@@ -1,14 +1,23 @@
 // import express from 'express';
-
 // import mongoose from "mongoose";
+// import bcrypt from 'bcrypt';
+// import cors from 'cors';
+
 const express = require('express')
 const mongoose = require('mongoose')
+
 const app = express()
 const port = 3000
-mongoose.connect("mongodb+srv://nonnadella27:uJNx5EuM7mAyKpm1@cluster0.o7ilj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+const cors = require('cors');
+
+app.use(express.json());
+app.use(cors());
+
+mongoose.connect("mongodb+srv://nonnadella230:8MWYMk9SXwLiAN4k@cluster0.sf5fl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
 // criação do modelo/tabela Receita
 const Receita = mongoose.model('Receita', {
+    nome_user: String,
     nome: String,
     data: Date,
     modoPreparo: String,
@@ -22,8 +31,12 @@ const Receita = mongoose.model('Receita', {
 
 // criação do modelo/tabela Usuário
 const Usuario = mongoose.model('Usuario', {
-    nome: String,
-    senha: Number,
+    nome: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    senha: String,
     email: String
 })
 
@@ -60,25 +73,64 @@ app.post("/cadastro-receita", async (req, res) => {
 
 // API para inserts - Usuario
 app.post("/cadastro-usuario", async (req, res) => {
-    const user = new Usuario({
-        nome: req.body.nome,
-        senha: req.body.senha,
-        email: req.body.email
-    })
+    try {
+        const user = new Usuario({
+            nome: req.body.name,
+            senha: req.body.password,
+            email: req.body.email
+        })
+        await user.save()
+        res.send(user)
 
-    await user.save()
-    res.send(user)
+    } catch (error) {
+        console.error(error);
+        if (error.code === 11000) {
+            res.status(500).json({ error: 'Já existe um usuário com este nome!' });
+        } else {
+            res.status(500).json({ error: 'Erro ao cadastrar usuário' });
+        }
+    }
 })
 
 
-app.get('/', function (req, res) {
-    res.send('Hello word');
-})
+// API login Usuário
+app.post("/login-usuario", async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const credenciais = await Usuario.findOne({ email: email });
+
+        if (!credenciais) {
+            return res.status(400).json({ error: 'Usuário não encontrado!' });
+        }
+
+        if(credenciais.senha == password){
+            console.log('Senha achada!');
+            return res.status(200).json({
+                message: 'Login bem-sucedido',
+                user: {
+                    _id: credenciais._id,
+                    name: credenciais.nome,
+                    email: credenciais.email,
+                    senha: credenciais.senha,
+                },
+            });
+        }
+
+    } catch (error) {
+        console.error('Erro no servidor:', error.message || error);
+        return res.status(500).json({ error: 'Erro no servidor', details: error.message || error });
+    }
+});
+
+// app.get('/', function (req, res) {
+//     res.send('Hello word');
+// })
 
 
 app.listen(port, () => {
     console.log('App running')
-}); 
+});
 
 // API para listar todas as receitas
 // app.get("/api/receitas", async (req, res) => {
