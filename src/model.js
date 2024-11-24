@@ -6,10 +6,10 @@ const Receita = mongoose.model('Receita', {
     nome: String,
     data: Date,
     modoPreparo: String,
-    ingredientes: {
+    ingredientes: [{
         nomeIngred: String,
         quantidade: Number
-    },
+    }],
     favoritado: Boolean,
     imagem: String
 });
