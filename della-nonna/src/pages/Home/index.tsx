@@ -42,10 +42,7 @@ export default function Home() {
 
                 const response = await fetch("http://localhost:3000/api/receitas", {
                     method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "nome-user": nomeUser, // Enviando o ID do usuário no cabeçalho
-                    },
+                    headers: {"Content-Type": "application/json", "nome-user": nomeUser,},
                 });
 
                 if (!response.ok) {
@@ -54,7 +51,6 @@ export default function Home() {
 
                 const data = await response.json();
                 setReceitas(data);
-                console.log(data); // Mostra as receitas retornadas
             } catch (error) {
                 setError(error.message);
                 console.error("Erro ao chamar a API:", error);
