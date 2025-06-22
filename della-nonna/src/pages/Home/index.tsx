@@ -34,12 +34,6 @@ export default function Home() {
             try {
                 const user = JSON.parse(localStorage.getItem('user') || '{}');
                 const nomeUser = user?.name;
-
-                if (!nomeUser) {
-                    setError("Usuário não logado");
-                    return;
-                }
-
                 const response = await fetch("http://localhost:3000/api/receitas", {
                     method: "GET",
                     headers: {"Content-Type": "application/json", "nome-user": nomeUser,},
@@ -56,7 +50,6 @@ export default function Home() {
                 console.error("Erro ao chamar a API:", error);
             }
         };
-
         fetchReceitas();
     }, []);
 
